@@ -101,3 +101,13 @@ hmm16 = unsupervised_HMM(ids, 16, 100)
 pickle.dump(hmm16, open('hmm16.p', 'wb'))
 print('\nSample Sentence:\n====================')
 print(sample_sentence(hmm16, ids_map, n_words=25))
+
+hmm32 = unsupervised_HMM(ids, 32, 100)
+pickle.dump(hmm16, open('hmm32.p', 'wb'))
+print('\nSample Sentence:\n====================')
+print(sample_sentence(hmm32, ids_map, n_words=25))
+
+hmm64 = unsupervised_HMM(ids, 64, 100)
+pickle.dump(hmm16, open('hmm64.p', 'wb'))
+print('\nSample Sentence:\n====================')
+print(sample_sentence(hmm32, ids_map, n_words=25))
