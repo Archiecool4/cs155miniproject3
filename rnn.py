@@ -79,7 +79,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 model.fit(X, y, batch_size = 32, epochs = 100)
 print(model.summary())
 
-# Save weights 
+# Save weights
 saved_weights = [layer.get_weights() for layer in model.layers]
 
 # Save Model
@@ -96,7 +96,7 @@ model = tf.keras.models.model_from_json(model_json)
 model.load_weights('model.h5')
 
 # Recompile Model
-model.compile(loss='categorical_crossentropy', optimizer='adam', 
+model.compile(loss='categorical_crossentropy', optimizer='adam',
                      metrics=['accuracy'])
 
 """# Generate Poem"""
@@ -138,4 +138,3 @@ def generate_seq(model, mapping, seq_length, seed_text, n_chars):
   return in_text
 
 print(generate_seq(temp_model, mapping, 40, 'shall i compare thee to a summer\'s day?', 14*40))
-
