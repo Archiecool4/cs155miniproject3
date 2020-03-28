@@ -30,6 +30,8 @@ hmm1 = pickle.load(open('hmm1.p', 'rb'))
 hmm2 = pickle.load(open('hmm2.p', 'rb'))
 hmm4 = pickle.load(open('hmm4.p', 'rb'))
 hmm16 = pickle.load(open('hmm16.p', 'rb'))
+hmm32 = pickle.load(open('hmm32.p', 'rb'))
+hmm64 = pickle.load(open('hmm64.p', 'rb'))
 
 # Load ids and id map
 ids = None
@@ -81,12 +83,12 @@ for i in range(3):
     # Generate 4 lines for each stanza
     for j in range(4):
         if j == 0 or j == 1:
-            text += sample_rhyming_sentence(hmm16, ids_map, seeds[j], n_words = 7)
+            text += sample_rhyming_sentence(hmm64, ids_map, seeds[j], n_words = 7)
             text += '\n'
         else:
             # Rhyming word
             rhyme = random.choice(rhymes_map[obs_map_r[seeds[j - 2]]])
-            text += sample_rhyming_sentence(hmm16, ids_map, ids_map[rhyme], n_words = 7)
+            text += sample_rhyming_sentence(hmm64, ids_map, ids_map[rhyme], n_words = 7)
             text += '\n'
 
 # Generate last 2 lines
@@ -94,10 +96,10 @@ while True:
     w3 = random.choice(list(ids_map.values()))
     if len(rhymes_map[obs_map_r[w3]]) != 0:
         break
-text += sample_rhyming_sentence(hmm16, ids_map, w3, n_words = 7)
+text += sample_rhyming_sentence(hmm64, ids_map, w3, n_words = 7)
 text += '\n'
 rhyme = random.choice(rhymes_map[obs_map_r[w3]])
-text += sample_rhyming_sentence(hmm16, ids_map, ids_map[rhyme], n_words = 7)
+text += sample_rhyming_sentence(hmm64, ids_map, ids_map[rhyme], n_words = 7)
 text += '\n'
 
 print(text)
